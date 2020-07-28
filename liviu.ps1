@@ -62,7 +62,8 @@ $tweaks = @(
 	"SetUACLow",                  # "SetUACHigh",
 	# "EnableSharingMappedDrives",  # "DisableSharingMappedDrives",
 	# "DisableAdminShares",           # "EnableAdminShares",
-	"DisableSMB1",                # "EnableSMB1",
+	#"DisableSMB1",                 
+	"EnableSMB1",
 	# "DisableSMBServer",           # "EnableSMBServer",
 	# "DisableLLMNR",               # "EnableLLMNR",
 	"SetCurrentNetworkPrivate",     # "SetCurrentNetworkPublic",
@@ -70,7 +71,8 @@ $tweaks = @(
 	"DisableNetDevicesAutoInst",  # "EnableNetDevicesAutoInst",
 	"DisableCtrldFolderAccess",	# "EnableCtrldFolderAccess",
 	# "DisableFirewall",            # "EnableFirewall",
-	"DisableDefender",            # "EnableDefender",
+	#"DisableDefender",            
+	"EnableDefender",
 	"DisableDefenderCloud",       # "EnableDefenderCloud",
 	"EnableF8BootMenu",             # "DisableF8BootMenu",
 	#"SetDEPOptOut",                 # "SetDEPOptIn",
@@ -131,10 +133,12 @@ $tweaks = @(
 	"HideSyncNotifications"         # "ShowSyncNotifications",
 	# "HideRecentShortcuts",          # "ShowRecentShortcuts",
 	"SetExplorerThisPC",            # "SetExplorerQuickAccess",
-	"HideThisPCFromDesktop",	# "ShowThisPCOnDesktop",
+	#"HideThisPCFromDesktop",	
+	"ShowThisPCOnDesktop",
 	# "ShowUserFolderOnDesktop",    # "HideUserFolderFromDesktop",
-	# "HideDesktopFromThisPC",        # "ShowDesktopInThisPC",
-	# "HideDesktopFromExplorer",    # "ShowDesktopInExplorer",
+	# "HideDesktopFromThisPC",      # "ShowDesktopInThisPC",
+	# "HideDesktopFromExplorer",    
+	"ShowDesktopInExplorer",
 	# "HideDocumentsFromThisPC",      # "ShowDocumentsInThisPC",
 	# "HideDocumentsFromExplorer",  # "ShowDocumentsInExplorer",
 	# "HideDownloadsFromThisPC",      # "ShowDownloadsInThisPC",
@@ -196,7 +200,7 @@ Function InstallTitusProgs {
 	choco install chocolatey-core.extension -y
 	Write-Output "Running O&O Shutup with Recommended Settings"
 	Import-Module BitsTransfer
-	Start-BitsTransfer -Source "https://raw.githubusercontent.com/ChrisTitusTech/win10script/master/ooshutup10.cfg" -Destination ooshutup10.cfg
+	Start-BitsTransfer -Source "https://raw.githubusercontent.com/ldoctoru/liviu-bloat/master/ooshutup10.cfg" -Destination ooshutup10.cfg
 	Start-BitsTransfer -Source "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -Destination OOSU10.exe
 	./OOSU10.exe ooshutup10.cfg /quiet
 }
@@ -2025,7 +2029,7 @@ function UninstallThirdPartyBloat {
 	Get-AppxPackage "2414FC7A.Viber" | Remove-AppxPackage
 	Get-AppxPackage "41038Axilesoft.ACGMediaPlayer" | Remove-AppxPackage
 	Get-AppxPackage "46928bounde.EclipseManager" | Remove-AppxPackage
-	Get-AppxPackage "4DF9E0F8.Netflix" | Remove-AppxPackage
+	#Get-AppxPackage "4DF9E0F8.Netflix" | Remove-AppxPackage
 	Get-AppxPackage "64885BlueEdge.OneCalendar" | Remove-AppxPackage
 	Get-AppxPackage "7EE7776C.LinkedInforWindows" | Remove-AppxPackage
 	Get-AppxPackage "828B5831.HiddenCityMysteryofShadows" | Remove-AppxPackage
